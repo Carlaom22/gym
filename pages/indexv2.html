@@ -856,14 +856,16 @@
           <h3>Serviços</h3>
           <div class="footer-links">
             <ul>
-              <li><a href="servicosv2.html#musculacao">Musculação</a></li>
-              <li><a href="servicosv2.html#aulas">Aulas de Grupo</a></li>
-              <li><a href="servicosv2.html#personal">Treino Personalizado</a></li>
-              <li><a href="servicosv2.html#nutricao">Nutrição</a></li>
-              <li><a href="servicosv2.html#online">Acompanhamento Online</a></li>
+              <li><a href="servicosv2.html?f=personal#servicos-grid">Treino Personalizado</a></li>
+              <li><a href="servicosv2.html?f=online#servicos-grid">Acompanhamento Online</a></li>
+              <li><a href="servicosv2.html?f=musculacao#servicos-grid">Musculação</a></li>
+              <li><a href="servicosv2.html?f=aulas#servicos-grid">Aulas de Grupo</a></li>
+              <li><a href="servicosv2.html?f=fisioterapia#servicos-grid">Fisioterapia</a></li>
+  <li><a href="servicosv2.html?f=nutri%C3%A7%C3%A3o#servicos-grid">Nutrição</a></li>
             </ul>
           </div>
         </div>
+
 
         <div class="footer-col">
           <h3>Redes Sociais</h3>
@@ -1033,7 +1035,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'aulas de grupo': 'aulas',
       'musculação': 'musculacao',
       'fisioterapia': 'fisioterapia',
-      'nutrição': 'nutricao',
+      'nutrição': 'nutrição',
       'acompanhamento online': 'online',
     };
     const slug = slugMap[title] || 'todos';

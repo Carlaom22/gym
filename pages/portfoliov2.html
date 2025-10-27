@@ -291,17 +291,18 @@
           </div>
         </div>
         <div class="footer-col animate delay-2">
-          <h3>Serviços</h3>
+          <h3>Explora a Galeria</h3>
           <div class="footer-links">
             <ul>
-              <li><a href="servicosv2.html#musculacao">Musculação</a></li>
-              <li><a href="servicosv2.html#aulas">Aulas de Grupo</a></li>
-              <li><a href="servicosv2.html#personal">Treino Personalizados</a></li>
-              <li><a href="servicosv2.html#nutricao">Nutrição Desportiva</a></li>
-              <li><a href="servicosv2.html#online">Acompanhamento Online</a></li>
+              <li><a href="#galeria">Ver todos os álbuns</a></li>
+              <li><a href="#album=treino-personalizado">Treinos Personalizados</a></li>
+              <li><a href="#album=aulas-grupo">Aulas &amp; Avaliações</a></li>
+              <li><a href="#album=caminhada-10k-2025-05-pico960">Eventos Outdoor</a></li>
+              <li><a href="#album=workshop-nutricao-2025-02">Workshops e Formação</a></li>
             </ul>
           </div>
         </div>
+
         <div class="footer-col animate delay-3">
           <h3>Redes Sociais</h3>
           <div class="social-links">
@@ -767,5 +768,49 @@
     ]
   }
   </script>
+  <script>
+  function handleHash(){
+    const h = location.hash || '';
+
+    // Link para um álbum: #album=chave
+    if (h.startsWith('#album=')) {
+      const key = decodeURIComponent(h.split('=')[1] || '');
+      if (albuns[key]) {
+        // Abre apenas se ainda não estiver esse álbum aberto
+        if (!document.getElementById('slider').classList.contains('active') || currentAlbumKey !== key) {
+          openSlider(0, key);
+        }
+      } else {
+        // (opcional) feedback se a chave não existir
+        const toast = document.getElementById('toast');
+        if (toast) { toast.textContent = 'Álbum não encontrado.'; toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'), 1800); }
+      }
+      return;
+    }
+
+    // Link para a grelha: #galeria
+    if (h === '#galeria') {
+      const el = document.getElementById('galeria');
+      const headerH = (document.getElementById('header')?.offsetHeight || 0);
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - headerH, behavior: 'smooth' });
+      // fecha o slider se estiver aberto
+      if (document.getElementById('slider').classList.contains('active')) closeSlider();
+      return;
+    }
+
+    // Qualquer outro hash: garantir que o slider fecha
+    if (document.getElementById('slider').classList.contains('active')) closeSlider();
+  }
+
+  // ⚠️ Adiciona isto: reage quando o hash muda (ex.: clique no footer)
+  window.addEventListener('hashchange', handleHash);
+
+  // Render inicial + abrir se já vier com hash
+  window.addEventListener('DOMContentLoaded', () => {
+    renderAlbumCards();
+    handleHash();
+  });
+</script>
+
 </body>
 </html>

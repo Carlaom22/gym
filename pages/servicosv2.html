@@ -923,6 +923,174 @@
       font-weight: 800;
       letter-spacing: 0.3px;
     }
+
+    /* ==== Horários ==== */
+    .horarios-aulas {
+      background: var(--cinza-fundo);
+    }
+    
+    .filtro-dias {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      gap: 0.625rem;
+      margin-bottom: 2.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scrollbar-width: thin;
+      -ms-overflow-style: none;
+    }
+    
+    .filtro-dias::-webkit-scrollbar {
+      height: 6px;
+    }
+    
+    .filtro-dias::-webkit-scrollbar-thumb {
+      background: var(--dourado);
+      border-radius: 3px;
+    }
+    
+    .filtro-dia {
+      padding: 0.75rem 1.25rem;
+      background: var(--branco);
+      border: 2px solid var(--azul);
+      color: var(--azul);
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .filtro-dia:hover,
+    .filtro-dia:focus,
+    .filtro-dia.ativo {
+      background: var(--azul);
+      color: #fff;
+    }
+    
+    .horarios-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5625rem;
+    }
+    
+    .dia-horarios {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5625rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .dia-horarios:hover,
+    .dia-horarios:focus-within {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .dia-titulo {
+      text-align: center;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.9375rem;
+      border-bottom: 2px solid var(--cinza-card);
+      color: var(--azul-escuro);
+      position: relative;
+    }
+    
+    .dia-titulo::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3.75rem;
+      height: 2px;
+      background: var(--dourado);
+    }
+    
+    .aula-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--cinza-card);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .aula-item:last-child {
+      border-bottom: none;
+    }
+    
+    .aula-horario {
+      font-weight: 700;
+      color: var(--azul);
+      background: rgba(37,99,235,.1);
+      padding: 0.3125rem 0.625rem;
+      border-radius: 4px;
+      min-width: 6.25rem;
+      text-align: center;
+    }
+    
+    .aula-nome {
+      flex-grow: 1;
+      padding: 0 0.9375rem;
+      font-weight: 600;
+    }
+    
+    .hoje .dia-titulo {
+      color: var(--dourado);
+    }
+    
+    .hoje {
+      border: 2px solid var(--dourado);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hoje::before {
+      content: 'HOJE';
+      position: absolute;
+      top: 0.625rem;
+      right: -1.25rem;
+      background: var(--dourado);
+      color: #fff;
+      padding: 0.3125rem 1.5625rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      transform: rotate(45deg);
+    }
+    
+    .legenda-horarios {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 1.875rem;
+      flex-wrap: wrap;
+    }
+    
+    .legenda-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .legenda-cor {
+      width: 0.9375rem;
+      height: 0.9375rem;
+      border-radius: 3px;
+    }
+    
+    .legenda-hoje {
+      background: var(--dourado);
+    }
+    
     
     /* ==== Footer ==== */
     footer {
@@ -1957,6 +2125,129 @@
         grid-template-columns: repeat(4, 1fr);
       }
     }
+
+    /* Corrige corte de texto nos serviços em mobile */
+@media (max-width: 768px) {
+  .servico-info {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .servico-card {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+
+  .servico-imagem img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+/* No mobile, mostra o texto completo no slider (sem clamp) */
+@media (max-width: 768px) {
+  .slide .line-clamp-3 {
+    -webkit-line-clamp: unset;
+    display: block;
+    overflow: visible;
+  }
+}
+
+/* ==== Media Queries para Layout Responsivo ==== */
+    @media (min-width: 480px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      .quiz-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 640px) {
+      .servicos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .destaque-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .modal-meta {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .container {
+        padding: 0 2rem;
+      }
+      
+      .servico-slide {
+        min-width: 44vw;
+        max-width: 44vw;
+        margin: 0 0.9375rem;
+      }
+      
+      .servico-slide .servico-imagem {
+        height: 220px;
+      }
+      
+      .modal-grid {
+        grid-template-columns: 1.2fr .8fr;
+      }
+      
+      .pricing {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .horarios-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 900px) {
+      .quiz-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .servicos-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .servico-slide {
+        min-width: 30vw;
+        max-width: 30vw;
+        margin: 0 0.9375rem;
+      }
+      
+      .servico-slide .servico-imagem {
+        height: 220px;
+      }
+      
+      .destaque-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .footer-container {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      
+      .pricing {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .horarios-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2170,20 +2461,20 @@
           <!-- Detalhes para modal -->
           <div class="servico-detalhes" id="detalhes-treino-personalizado">
             <div class="detalhe-texto">
-              <p>Sessões de 50–60 minutos focadas nos teus objetivos (força, hipertrofia, perda de gordura ou performance). Avaliação inicial incluída, com reavaliações mensais. Plano de treino e feedback contínuo por WhatsApp.</p>
+              <p>Sessões de 60 minutos focadas nos teus objetivos (força, hipertrofia, perda de gordura ou performance). Avaliação inicial incluída, com reavaliações mensais.</p>
             </div>
 
             <!-- Galeria de vídeos -->
             <div class="galeria-servico" role="list" aria-label="Galeria de Treino Personalizado">
               <video controls preload="metadata" playsinline role="listitem" poster="../assets/servicos/pt.png">
-                <source src="/assets/1.mp4" type="video/mp4">
+                <source src="../assets/1.mp4" type="video/mp4">
                 O teu navegador não suporta vídeos HTML5.
               </video>
               <video controls preload="metadata" playsinline role="listitem" poster="../assets/servicos/pt.png">
-                <source src="/assets/4.mp4" type="video/mp4">
+                <source src="../assets/4.mp4" type="video/mp4">
               </video>
               <video controls preload="metadata" playsinline role="listitem" poster="../assets/servicos/pt.png">
-                <source src="/assets/5.mp4" type="video/mp4">
+                <source src="../assets/5.mp4" type="video/mp4">
               </video>
             </div>
 
@@ -2213,21 +2504,21 @@
           </div>
 
           <!-- Detalhes para modal -->
-          <div class="servico-detalhes" id="detalhes-treino-personalizado">
+          <div class="servico-detalhes" id="detalhes-treino-personalizado-duo">
             <div class="detalhe-texto">
-              <p>Sessões de 50–60 minutos focadas nos vossos objetivos (força, hipertrofia, perda de gordura ou performance). Avaliação inicial incluída, com reavaliações mensais. Plano de treino e feedback contínuo por WhatsApp.</p>
+              <p>Sessões de 60 minutos focadas nos vossos objetivos (força, hipertrofia, perda de gordura ou performance). Avaliação inicial incluída, com reavaliações mensais.</p>
             </div>
             <!-- Galeria de vídeos -->
             <div class="galeria-servico" role="list" aria-label="Galeria de Treino Personalizado">
               <video controls preload="metadata" playsinline role="listitem" poster="../assets/servicos/pt.png">
-                <source src="/assets/1.mp4" type="video/mp4">
+                <source src="../assets/1.mp4" type="video/mp4">
                 O teu navegador não suporta vídeos HTML5.
               </video>
               <video controls preload="metadata" playsinline role="listitem" poster="../assets/servicos/pt.png">
-                <source src="/assets/4.mp4" type="video/mp4">
+                <source src="../assets/4.mp4" type="video/mp4">
               </video>
               <video controls preload="metadata" playsinline role="listitem" poster="../assets/servicos/pt.png">
-                <source src="/assets/5.mp4" type="video/mp4">
+                <source src="../assets/5.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -2291,7 +2582,7 @@
             <!-- Galeria de vídeos -->
             <div class="galeria-servico" role="list" aria-label="Galeria Kickboxing">
               <video controls preload="metadata" playsinline role="listitem" poster="../assets/servicos/kick.png">
-                <source src="/assets/servicos/kick.mp4" type="video/mp4">
+                <source src="../assets/servicos/kick.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -2516,7 +2807,7 @@
             <div class="galeria-servico" role="list" aria-label="Galeria de Musculação">
               <img src="../assets/zumpi/b48ce292-f13d-4a5e-94cc-da966df0a50c.jpg" alt="Musculação" role="listitem" loading="lazy">
               <video controls preload="metadata" playsinline role="listitem" poster="../assets/servicos/muscu.png">
-                <source src="/assets/1.mp4" type="video/mp4">
+                <source src="../assets/1.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -2552,11 +2843,11 @@
             <!-- Galeria de vídeos -->
             <div class="galeria-servico" role="list" aria-label="Galeria de Fisioterapia">
               <video controls preload="metadata" playsinline role="listitem" poster="../assets/servicos/fisio.png">
-                <source src="/assets/servicos/fisio.mp4" type="video/mp4">
+                <source src="../assets/servicos/fisio.mp4" type="video/mp4">
                 O teu navegador não suporta vídeos HTML5.
               </video>
               <video controls preload="metadata" playsinline role="listitem" poster="../assets/servicos/fisio.png">
-                <source src="/assets/servicos/fisio2.mp4" type="video/mp4">
+                <source src="../assets/servicos/fisio2.mp4" type="video/mp4">
                   O teu navegador não suporta vídeos HTML5.
               </video>
             </div>
@@ -2709,7 +3000,7 @@
       <div class="abordagem-compacta animate delay-2">
         <div class="compacta-grid">
           <div class="compacta-texto">
-            <h3>Preços Personalizados</h3>
+            <h3>Opções Diversificadas</h3>
             <p><strong>Mais do que tabelas fixas, no Vila Plus os preços são personalizados, tal como o acompanhamento que oferecemos.</strong></p>
             
             <div class="opcoes-lista">
@@ -2762,6 +3053,80 @@
     </div>
   </section>
 
+    <section id="horarios-aulas" class="horarios-aulas" aria-labelledby="horarios-heading">
+    <div class="container">
+      <div class="section-title animate">
+        <h2 id="horarios-heading">Horários das Aulas de Grupo</h2>
+        <p>Consulta os horários disponíveis e planeia os teus treinos.</p>
+      </div>
+      <div class="filtro-dias animate delay-1" role="tablist" aria-label="Filtrar horários por dia">
+        <button class="filtro-dia ativo" data-dia="todos" role="tab" aria-selected="true">Todos os Dias</button>
+        <button class="filtro-dia" data-dia="segunda" role="tab" aria-selected="false">Segunda-feira</button>
+        <button class="filtro-dia" data-dia="terca" role="tab" aria-selected="false">Terça-feira</button>
+        <button class="filtro-dia" data-dia="quarta" role="tab" aria-selected="false">Quarta-feira</button>
+        <button class="filtro-dia" data-dia="quinta" role="tab" aria-selected="false">Quinta-feira</button>
+        <button class="filtro-dia" data-dia="sexta" role="tab" aria-selected="false">Sexta-feira</button>
+        <button class="filtro-dia" data-dia="sabado" role="tab" aria-selected="false">Sábado</button>
+      </div>
+      <div class="horarios-container animate delay-2">
+        <div class="dia-horarios segunda" id="segunda"><h3 class="dia-titulo">Segunda-feira</h3>
+          <div class="aula-item"><span class="aula-horario">09:00-09:45</span><span class="aula-nome">Circuito</span></div>
+          <div class="aula-item"><span class="aula-horario">10:00-10:45</span><span class="aula-nome">Pilates Clínico</span></div>
+          <div class="aula-item"><span class="aula-horario">11:00-11:45</span><span class="aula-nome">Pilates Clínico</span></div>
+          <div class="aula-item"><span class="aula-horario">17:30-18:15</span><span class="aula-nome">Step</span></div>
+          <div class="aula-item"><span class="aula-horario">18:15-19:00</span><span class="aula-nome">Circuito</span></div>
+          <div class="aula-item"><span class="aula-horario">18:15-19:00</span><span class="aula-nome">Pilates Clínico</span></div>
+          <div class="aula-item"><span class="aula-horario">19:30-20:15</span><span class="aula-nome">Gap</span></div>
+          <div class="aula-item"><span class="aula-horario">20:15-21:00</span><span class="aula-nome">Treino Funcional</span></div>
+          <div class="aula-item"><span class="aula-horario">20:15-21:00</span><span class="aula-nome">Pilates Clínico</span></div>
+        </div>
+        <div class="dia-horarios terca" id="terca"><h3 class="dia-titulo">Terça-feira</h3>
+          <div class="aula-item"><span class="aula-horario">07:05-07:50</span><span class="aula-nome">Treino Funcional</span></div>
+          <div class="aula-item"><span class="aula-horario">09:15-10:00</span><span class="aula-nome">Pilates Clínico</span></div>
+          <div class="aula-item"><span class="aula-horario">18:15-19:00</span><span class="aula-nome">Pilates Clínico</span></div>
+          <div class="aula-item"><span class="aula-horario">19:15-20:00</span><span class="aula-nome">HIIT</span></div>
+          <div class="aula-item"><span class="aula-horario">20:15-21:00</span><span class="aula-nome">Aeróbica</span></div>
+        </div>
+        <div class="dia-horarios quarta" id="quarta"><h3 class="dia-titulo">Quarta-feira</h3>
+          <div class="aula-item"><span class="aula-horario">07:05-07:50</span><span class="aula-nome">Gap</span></div>
+          <div class="aula-item"><span class="aula-horario">09:00-09:45</span><span class="aula-nome">Treino Funcional</span></div>
+          <div class="aula-item"><span class="aula-horario">10:00-10:45</span><span class="aula-nome">Pilates Clínico</span></div>
+          <div class="aula-item"><span class="aula-horario">18:15-19:00</span><span class="aula-nome">Gap</span></div>
+          <div class="aula-item"><span class="aula-horario">18:15-19:00</span><span class="aula-nome">Pilates Clínico</span></div>
+          <div class="aula-item"><span class="aula-horario">19:15-20:00</span><span class="aula-nome">Zumba</span></div>
+          <div class="aula-item"><span class="aula-horario">20:00-20:45</span><span class="aula-nome">Circuito</span></div>
+          <div class="aula-item"><span class="aula-horario">20:00-20:45</span><span class="aula-nome">Step</span></div>
+        </div>
+        <div class="dia-horarios quinta" id="quinta"><h3 class="dia-titulo">Quinta-feira</h3>
+          <div class="aula-item"><span class="aula-horario">07:05-07:50</span><span class="aula-nome">Circuito</span></div>
+          <div class="aula-item"><span class="aula-horario">09:15-10:00</span><span class="aula-nome">Pilates Clínico</span></div>
+          <div class="aula-item"><span class="aula-horario">18:15-19:00</span><span class="aula-nome">Treino Funcional</span></div>
+          <div class="aula-item"><span class="aula-horario">19:15-20:00</span><span class="aula-nome">Pilates Clínico</span></div>
+          <div class="aula-item"><span class="aula-horario">20:15-21:00</span><span class="aula-nome">Pilates Clínico</span></div>
+        </div>
+        <div class="dia-horarios sexta" id="sexta"><h3 class="dia-titulo">Sexta-feira</h3>
+          <div class="aula-item"><span class="aula-horario">07:05-07:50</span><span class="aula-nome">Treino Funcional</span></div>
+          <div class="aula-item"><span class="aula-horario">09:00-09:45</span><span class="aula-nome">Gap</span></div>
+          <div class="aula-item"><span class="aula-horario">10:00-10:45</span><span class="aula-nome">Pilates Clínico</span></div>
+          <div class="aula-item"><span class="aula-horario">18:15-19:00</span><span class="aula-nome">Step</span></div>
+          <div class="aula-item"><span class="aula-horario">19:15-20:00</span><span class="aula-nome">Pilates Clínico</span></div>
+        </div>
+        <div class="dia-horarios sabado" id="sabado"><h3 class="dia-titulo">Sábado</h3>
+          <div class="aula-item"><span class="aula-horario">09:15-10:00</span><span class="aula-nome">Circuito</span></div>
+          <div class="aula-item"><span class="aula-horario">10:00-10:45</span><span class="aula-nome">Pilates Clínico</span></div>
+          <div class="aula-item"><span class="aula-horario">11:00-11:45</span><span class="aula-nome">Gap</span></div>
+          <div class="aula-item"><span class="aula-horario">11:00-11:45</span><span class="aula-nome">Vila Kids</span></div>
+          <div class="aula-item"><span class="aula-horario">12:00-13:00</span><span class="aula-nome">Kickboxing</span></div>
+        </div>
+      </div>
+      <div class="legenda-horarios animate delay-3"><div class="legenda-item"><div class="legenda-cor legenda-hoje"></div><span>Dia de hoje</span></div></div>
+      <div style="text-align:center;margin-top:30px" class="animate delay-3">
+        <p><strong>Nota:</strong> Os horários estão sujeitos a alterações. Confirma sempre na receção.</p>
+        <a href="https://www.regyfit.com/admin2/modulos/crm/site_integrations/aula_experimental.php?id_box=2064&id_int=4&acs=d78b8f480898e2d6afd80418263be90f&lang=pt&site=n" class="btn btn-filled" style="margin-top:15px">Reservar Aula</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -2790,14 +3155,13 @@
           <h3>Serviços</h3>
           <div class="footer-links">
             <ul>
-              <li><a href="servicosv2.html#categorias-servicos" data-categoria="todos">Todos</a></li>
-              <li><a href="servicosv2.html#categorias-servicos" data-categoria="personal">Treino Personalizado</a></li>
-              <li><a href="servicosv2.html#categorias-servicos" data-categoria="aulas">Aulas de Grupo</a></li>
-              <li><a href="servicosv2.html#categorias-servicos" data-categoria="musculacao">Musculação</a></li>
-              <li><a href="servicosv2.html#categorias-servicos" data-categoria="fisioterapia">Fisioterapia</a></li>
-              <li><a href="servicosv2.html#categorias-servicos" data-categoria="nutrição">Nutrição</a></li>
-              <li><a href="servicosv2.html#categorias-servicos" data-categoria="online">Acompanhamento Online</a></li>
-              <li><a href="servicosv2.html#categorias-servicos" data-categoria="domicilio">Domícilio</a></li>
+              <li><a href="servicosv2.html?f=personal#servicos-grid">Treino Personalizado</a></li>
+              <li><a href="servicosv2.html?f=online#servicos-grid">Acompanhamento Online</a></li>
+              <li><a href="servicosv2.html?f=musculacao#servicos-grid">Musculação</a></li>
+              <li><a href="servicosv2.html?f=aulas#servicos-grid">Aulas de Grupo</a></li>
+              <li><a href="servicosv2.html?f=fisioterapia#servicos-grid">Fisioterapia</a></li>
+              <li><a href="servicosv2.html?f=nutri%C3%A7%C3%A3o#servicos-grid">Nutrição</a></li>
+              <li><a href="servicosv2.html?f=domicilio#servicos-grid">Treino ao Domicílio</a></li>
             </ul>
           </div>
         </div>
@@ -2831,7 +3195,7 @@
         <div class="modal-grid">
           <div class="modal-media">
             <img src="" alt="" class="modal-mainimg" id="modalMainImg" style="display:none">
-            <video class="modal-mainvideo" id="modalMainVideo" style="display:none" controls playsinline></video>
+<video class="modal-mainvideo" id="modalMainVideo" style="display:none" controls playsinline muted></video>
             <div class="modal-thumbs" id="modalThumbs"></div>
           </div>
           <div class="modal-info">
@@ -3253,33 +3617,32 @@
     
     // Funções para mostrar imagem ou vídeo
     function showImage(src, alt) {
-      vidEl.pause();
-      vidEl.removeAttribute('src');
-      vidEl.style.display = 'none';
-      
-      imgEl.src = src;
-      imgEl.alt = alt || '';
-      imgEl.style.display = 'block';
-    }
-    
-    function showVideo(src, poster) {
-      imgEl.style.display = 'none';
-      imgEl.removeAttribute('src');
-      
-      vidEl.style.display = 'block';
-      if (poster) {
-        vidEl.setAttribute('poster', poster);
-      } else {
-        vidEl.removeAttribute('poster');
-      }
-      
-      vidEl.src = src;
-      // Tentar reproduzir, mas capturar erros de autoplay
-      vidEl.play().catch(() => {
-        // Autoplay pode falhar, mas isso é normal
-      });
-    }
-    
+  try { vidEl.pause(); } catch {}
+  vidEl.removeAttribute('src');
+  vidEl.removeAttribute('poster');
+  vidEl.removeAttribute('controls');
+  vidEl.style.display = 'none';
+
+  imgEl.src = src;
+  imgEl.alt = alt || '';
+  imgEl.style.display = 'block';
+}
+
+function showVideo(src, poster) {
+  imgEl.style.display = 'none';
+  imgEl.removeAttribute('src');
+
+  vidEl.style.display = 'block';
+  vidEl.setAttribute('playsinline', '');
+  vidEl.setAttribute('controls', '');
+  if (poster) vidEl.setAttribute('poster', poster);
+  else vidEl.removeAttribute('poster');
+
+  vidEl.src = src;
+  vidEl.load();               // <- importante para mobile
+  vidEl.play().catch(() => {}); // ok se bloquear autoplay
+}
+
     // Abrir e fechar modal
     function openModal() {
       overlay.classList.add('aberto');
@@ -3332,8 +3695,39 @@ function openFromCard(card){
   incluiEl.textContent = inclui;
   duracaoEl.textContent = duracaoSug;
 
-  function showImage(src, alt){ vidEl.pause(); vidEl.removeAttribute('src'); vidEl.style.display='none'; imgEl.src=src; imgEl.alt=alt||''; imgEl.style.display='block'; }
-  function showVideo(src, poster){ imgEl.style.display='none'; imgEl.removeAttribute('src'); vidEl.style.display='block'; poster ? vidEl.setAttribute('poster',poster) : vidEl.removeAttribute('poster'); vidEl.src=src; vidEl.play().catch(()=>{}); }
+  // Troca o título "Inclui" para "Opções" no modal se for categoria "online"
+const incluiTitleEl = incluiEl?.previousElementSibling;
+if (incluiTitleEl) {
+  incluiTitleEl.textContent = (cat === 'online') ? 'Opções' : 'Inclui';
+      incluiTitleEl.textContent = (cat === 'aulas') ? 'Foco' : 'Inclui';
+
+}
+
+
+  function showImage(src, alt){
+  try { vidEl.pause(); } catch {}
+  vidEl.removeAttribute('src');
+  vidEl.removeAttribute('poster');
+  vidEl.removeAttribute('controls');
+  vidEl.style.display='none';
+
+  imgEl.src=src;
+  imgEl.alt=alt||'';
+  imgEl.style.display='block';
+}
+function showVideo(src, poster){
+  imgEl.style.display='none';
+  imgEl.removeAttribute('src');
+
+  vidEl.style.display='block';
+  vidEl.setAttribute('playsinline','');
+  vidEl.setAttribute('controls','');
+  if (poster) vidEl.setAttribute('poster',poster); else vidEl.removeAttribute('poster');
+
+  vidEl.src=src;
+  vidEl.load();
+  vidEl.play().catch(()=>{});
+}
 
   const thumbs = document.getElementById('modalThumbs');
   thumbs.innerHTML = '';
@@ -3396,7 +3790,7 @@ function buildIncluiFromCard(card) {
     // Conteúdo específico para cada categoria
     switch(categoria) {
         case 'personal':
-            return 'Avaliação Fisica. Plano de treino (app Vila Plus). Avaliação com nutricionista. Acompanhamento de um PT durante o treino.';
+            return 'Disponibilidade completa para marcações de treinos. Água e tolha de treino. Avaliações físicas gratuitas. Descontos na nutrição e fisioterapia';
         
         case 'aulas':
             return 'Acesso a todas as aulas de grupo. Variedade de modalidades. Ambiente motivador. Instrutores certificados.';
@@ -3472,7 +3866,7 @@ if (bloco && bloco.querySelector('.galeria-servico')) {
       itens.push({
         type: 'video',
         src,
-        thumb: poster || src,   // usa poster se existir
+thumb: poster || imgHero || src,   // usa poster; senão, imagem do card; senão, src
         poster,
         alt: el.getAttribute('aria-label') || el.getAttribute('alt') || titulo
       });
@@ -3515,6 +3909,15 @@ if (itens.length === 0 && imgHero) {
       descEl.textContent   = descLonga;
       incluiEl.textContent = inclui;
       duracaoEl.textContent = duracaoSug;
+
+      // Troca o título "Inclui" para "Opções" no modal se for categoria "online"
+const incluiTitleEl = incluiEl?.previousElementSibling;
+if (incluiTitleEl) {
+  incluiTitleEl.textContent = (cat === 'online') ? 'Opções' : 'Inclui';
+    incluiTitleEl.textContent = (cat === 'aulas') ? 'Foco' : 'Inclui';
+
+}
+
 
       // Thumbs + media principal
       thumbsEl.innerHTML = '';

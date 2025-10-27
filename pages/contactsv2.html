@@ -862,6 +862,46 @@
   display: none;
 }
 
+/* ===== Nav: Desktop >=1024px / Mobile-Tablet <1024px ===== */
+
+/* Desktop por omissão */
+nav ul {
+  display: flex;               /* menu normal visível */
+  position: static;
+  width: auto;
+  background: transparent;
+  flex-direction: row;
+  padding: 0;
+  box-shadow: none;
+  max-height: none;
+  overflow: visible;
+  z-index: auto;
+}
+.mobile-menu-btn { display: none; }
+
+/* <1024px: usa menu mobile (hambúrguer) */
+@media (max-width: 1023px) {
+  .mobile-menu-btn { display: flex; }
+
+  nav ul {
+    display: none;             /* escondido até clicares no botão */
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    width: 100%;
+    background: var(--branco);
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    max-height: calc(100vh - var(--header-h));
+    overflow-y: auto;
+    z-index: 1001;             /* acima do header */
+  }
+  nav ul.show { display: flex; }
+
+  nav ul li { margin: 0.75rem 0; }
+}
+
 
   </style>
 </head>
@@ -900,7 +940,7 @@
   </section>
 
   <!-- Contactos principais -->
-  <section class="contactos-principais">
+  <section class="contactos-principais" id="contactos">
     <div class="container">
       <div class="section-title animate">
         <h2>Como podemos ajudar?</h2>
@@ -924,7 +964,7 @@
   </section>
 
   <!-- Onde estamos (mapa) -->
-  <section>
+  <section id="localizacao">
     <div class="container">
       <div class="section-title animate">
         <h2>Onde estamos</h2>
@@ -1005,7 +1045,7 @@
   </section>
 
   <!-- FAQ -->
-  <section class="faq-section">
+  <section class="faq-section" id="faq">
     <div class="container">
       <div class="section-title animate">
         <h2>Perguntas Frequentes</h2>
@@ -1125,14 +1165,13 @@
           </div>
         </div>
         <div class="footer-col animate delay-2">
-          <h3>Serviços</h3>
+          <h3>Nesta página</h3>
           <div class="footer-links">
             <ul>
-              <li><a href="servicosv2.html#musculacao">Musculação</a></li>
-              <li><a href="servicosv2.html#aulas">Aulas de Grupo</a></li>
-              <li><a href="servicosv2.html#personal">Treino Personalizados</a></li>
-              <li><a href="servicosv2.html#nutricao">Nutrição Desportiva</a></li>
-              <li><a href="servicosv2.html#online">Acompanhamento Online</a></li>
+              <li><a href="#contactos">Contactos principais</a></li>
+              <li><a href="#localizacao">Onde estamos</a></li>
+              <li><a href="#formulario">Formulário</a></li>
+              <li><a href="#faq">Perguntas Frequentes</a></li>
             </ul>
           </div>
         </div>
@@ -1419,5 +1458,54 @@
       }
     });
   </script>
+  <script>
+(function () {
+  const BREAKPOINT = 1023; // <1024 é mobile/tablet
+  const btn  = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('main-menu');
+  if (!btn || !menu) return;
+
+  function setIcon(open) {
+    const ic = btn.querySelector('i');
+    if (ic) ic.className = open ? 'fas fa-times' : 'fas fa-bars';
+  }
+  function isOpen(){ return menu.classList.contains('show'); }
+
+  // fechar ao clicar num link (apenas <1024)
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      if (window.innerWidth <= BREAKPOINT) {
+        menu.classList.remove('show');
+        btn.setAttribute('aria-expanded', 'false');
+        setIcon(false);
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  // quando clicas no botão, trava/destrava scroll
+  btn.addEventListener('click', () => {
+    // corre depois do teu handler existente que faz o toggle
+    setTimeout(() => {
+      const open = isOpen();
+      document.body.style.overflow = open ? 'hidden' : '';
+      setIcon(open);
+    }, 0);
+  });
+
+  // ao aumentar para desktop, garante estado limpo
+  function sync() {
+    if (window.innerWidth > BREAKPOINT) {
+      document.body.style.overflow = '';
+      menu.classList.remove('show');
+      btn.setAttribute('aria-expanded', 'false');
+      setIcon(false);
+    }
+  }
+  window.addEventListener('resize', sync);
+  sync();
+})();
+</script>
+
 </body>
 </html>

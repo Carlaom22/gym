@@ -176,6 +176,19 @@
     @media (min-width:1024px){
       .footer-container{grid-template-columns:repeat(4,1fr)}
     }
+
+    /* === Hero compacto (≈280px) === */
+.projetos-hero{
+  min-height: 280px !important;
+  padding: 1.5rem 1rem !important;
+}
+
+/* Remove o aumento em ecrãs maiores */
+@media (min-width:768px){
+  .projetos-hero{ min-height: 280px !important; }
+}
+
+
   </style>
 </head>
 <body>
@@ -400,17 +413,17 @@
           </div>
         </div>
         <div class="footer-col">
-          <h3>Serviços</h3>
-          <div class="footer-links">
-            <ul>
-              <li><a href="servicosv2.html#musculacao">Musculação</a></li>
-              <li><a href="servicosv2.html#aulas">Aulas de Grupo</a></li>
-              <li><a href="servicosv2.html#personal">Treino Personalizados</a></li>
-              <li><a href="servicosv2.html#nutricao">Nutrição Desportiva</a></li>
-              <li><a href="servicosv2.html#online">Acompanhamento Online</a></li>
-            </ul>
-          </div>
-        </div>
+  <h3>Projetos</h3>
+  <div class="footer-links">
+    <ul>
+      <li><a href="#off-season">OFF SEASON</a></li>
+      <li><a href="#programa-55">Programa 55+</a></li>
+      <li><a href="#poe-te-a-bulir">Põe-te a Bulir</a></li>
+      <li><a href="#team-building">Team Building</a></li>
+    </ul>
+  </div>
+</div>
+
         <div class="footer-col">
           <h3>Redes Sociais</h3>
           <div class="social-links">
@@ -464,7 +477,143 @@
   </script>
 
   <!-- Modais + Galeria (o teu JS) -->
-  <script>
+ 
+
+  <!-- Modais (conteúdo) -->
+  <!-- OFF SEASON -->
+  <div class="modal" id="modal-off-season" aria-hidden="true" role="dialog" aria-labelledby="title-off-season">
+    <div class="modal-content" tabindex="-1">
+      <div class="modal-header">
+        <h3 class="modal-title" id="title-off-season">OFF SEASON — Detalhes</h3>
+        <button class="modal-close" data-close aria-label="Fechar"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="gallery" data-gallery="off-season">
+          <div class="gallery-main">
+            <div class="gallery-slide active" data-index="0" data-type="image"><img src="../assets/projetos/off-season/1.jpg" alt="OFF SEASON — 1"></div>
+            <div class="gallery-slide" data-index="1" data-type="image"><img src="../assets/projetos/off-season/2.jpg" alt="OFF SEASON — 2"></div>
+            <div class="gallery-slide" data-index="2" data-type="image"><img src="../assets/projetos/off-season/3.jpg" alt="OFF SEASON — 3"></div>
+            <div class="gallery-slide" data-index="3" data-type="video"><video src="../assets/projetos/off-season/off.mp4" controls preload="metadata" poster="../assets/projetos/off-season/3.jpg"></video></div>
+          </div>
+          <div class="thumbs">
+            <button class="thumb active" data-to="0" aria-label="Imagem 1"><img src="../assets/projetos/off-season/1.jpg" alt=""></button>
+            <button class="thumb" data-to="1" aria-label="Imagem 2"><img src="../assets/projetos/off-season/2.jpg" alt=""></button>
+            <button class="thumb" data-to="2" aria-label="Imagem 3"><img src="../assets/projetos/off-season/3.jpg" alt=""></button>
+            <button class="thumb video" data-to="3" aria-label="Vídeo"><img src="../assets/projetos/off-season/4.jpg" alt=""></button>
+          </div>
+        </div>
+        <div class="proj-text">
+          <h3>Sobre o Projeto</h3>
+          <p>Ideal para melhorar a condição física, corrigir desequilíbrios e manter a atividade entre épocas.</p>
+          <div class="meta">
+            <div class="box"><strong>Inclui</strong> Avaliação física, ginásio+campo, sessões individuais/grupo, suporte.</div>
+            <div class="box"><strong>Objetivos</strong> Evolução física, prevenção de lesões e consistência.</div>
+          </div>
+          <div style="margin-top:.6rem"><a href="contactsv2.html" class="btn" style="background:var(--dourado);color:#fff;border-color:var(--dourado)">Quero saber mais</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRAMA 55+ -->
+  <div class="modal" id="modal-programa-55" aria-hidden="true" role="dialog" aria-labelledby="title-programa-55">
+    <div class="modal-content" tabindex="-1">
+      <div class="modal-header">
+        <h3 class="modal-title" id="title-programa-55">Programa 55+ — Detalhes</h3>
+        <button class="modal-close" data-close aria-label="Fechar"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="gallery" data-gallery="programa-55">
+          <div class="gallery-main">
+            <div class="gallery-slide active" data-index="0" data-type="video"><video src="../assets/projetos/programa-55/1.mp4" controls preload="metadata" poster="../assets/projetos/programa-55/capa.jpg"></video></div>
+            <div class="gallery-slide" data-index="1" data-type="video"><video src="../assets/projetos/programa-55/2.mp4" controls preload="metadata" poster="../assets/projetos/programa-55/capa.jpg"></video></div>
+            <div class="gallery-slide" data-index="2" data-type="video"><video src="../assets/projetos/programa-55/3.mp4" controls preload="metadata" poster="../assets/projetos/programa-55/capa.jpg"></video></div>
+          </div>
+          <div class="thumbs">
+            <button class="thumb video active" data-to="0" aria-label="Vídeo 1"><img src="../assets/projetos/programa-55/capa.jpg" alt=""></button>
+            <button class="thumb video" data-to="1" aria-label="Vídeo 2"><img src="../assets/projetos/programa-55/capa.jpg" alt=""></button>
+            <button class="thumb video" data-to="2" aria-label="Vídeo 3"><img src="../assets/projetos/programa-55/capa.jpg" alt=""></button>
+          </div>
+        </div>
+        <div class="proj-text">
+          <h3>Sobre o Projeto</h3>
+          <p>Iniciativa gratuita para a comunidade sénior com acompanhamento seguro e adaptado.</p>
+          <div class="meta">
+            <div class="box"><strong>Benefícios</strong> Mobilidade, equilíbrio, hábitos saudáveis e convívio.</div>
+            <div class="box"><strong>Para quem</strong> Maiores de 55 anos.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PÕE-TE A BULIR -->
+  <div class="modal" id="modal-poe-te-a-bulir" aria-hidden="true" role="dialog" aria-labelledby="title-poe-te-a-bulir">
+    <div class="modal-content" tabindex="-1">
+      <div class="modal-header">
+        <h3 class="modal-title" id="title-poe-te-a-bulir">Põe-te a Bulir — Detalhes</h3>
+        <button class="modal-close" data-close aria-label="Fechar"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="gallery" data-gallery="poe-te-a-bulir">
+          <div class="gallery-main">
+            <div class="gallery-slide active" data-index="0" data-type="image"><img src="../assets/projetos/poe-te-a-bulir/1.jpg" alt=""></div>
+            <div class="gallery-slide" data-index="1" data-type="image"><img src="../assets/projetos/poe-te-a-bulir/2.jpg" alt=""></div>
+            <div class="gallery-slide" data-index="2" data-type="image"><img src="../assets/projetos/poe-te-a-bulir/3.jpg" alt=""></div>
+            <div class="gallery-slide" data-index="3" data-type="image"><img src="../assets/projetos/poe-te-a-bulir/4.jpg" alt=""></div>
+          </div>
+          <div class="thumbs">
+            <button class="thumb active" data-to="0" aria-label="Imagem 1"><img src="../assets/projetos/poe-te-a-bulir/1.jpg" alt=""></button>
+            <button class="thumb" data-to="1" aria-label="Imagem 2"><img src="../assets/projetos/poe-te-a-bulir/2.jpg" alt=""></button>
+            <button class="thumb" data-to="2" aria-label="Imagem 3"><img src="../assets/projetos/poe-te-a-bulir/3.jpg" alt=""></button>
+            <button class="thumb" data-to="3" aria-label="Imagem 4"><img src="../assets/projetos/poe-te-a-bulir/4.jpg" alt=""></button>
+          </div>
+        </div>
+        <div class="proj-text">
+          <h3>Sobre o Projeto</h3>
+          <p>Aulas gratuitas ao ar livre aos fins-de-semana, entre junho e setembro.</p>
+          <div class="meta">
+            <div class="box"><strong>Modalidades</strong> Zumba, Aeróbica e aulas de ritmo.</div>
+            <div class="box"><strong>Inclusão</strong> Aberto a todas as idades e níveis.</div>
+          </div>
+          <div style="margin-top:.6rem"><a href="contactsv2.html" class="btn" style="background:var(--dourado);color:#fff;border-color:var(--dourado)">Quero participar</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEAM BUILDING -->
+  <div class="modal" id="modal-team-building" aria-hidden="true" role="dialog" aria-labelledby="title-team-building">
+    <div class="modal-content" tabindex="-1">
+      <div class="modal-header">
+        <h3 class="modal-title" id="title-team-building">Team Building — Detalhes</h3>
+        <button class="modal-close" data-close aria-label="Fechar"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="gallery" data-gallery="team-building">
+          <div class="gallery-main">
+            <div class="gallery-slide active" data-index="0" data-type="image"><img src="../assets/projetos/team-building/1.jpg" alt=""></div>
+            <div class="gallery-slide" data-index="1" data-type="image"><img src="../assets/projetos/team-building/2.jpg" alt=""></div>
+          </div>
+          <div class="thumbs">
+            <button class="thumb active" data-to="0" aria-label="Imagem 1"><img src="../assets/projetos/team-building/1.jpg" alt=""></button>
+            <button class="thumb" data-to="1" aria-label="Imagem 2"><img src="../assets/projetos/team-building/2.jpg" alt=""></button>
+          </div>
+        </div>
+        <div class="proj-text">
+          <h3>Sobre o Projeto</h3>
+          <p>Refresca a energia das equipas com desafios colaborativos e dinâmicas físicas.</p>
+          <div class="meta">
+            <div class="box"><strong>Objetivos</strong> Melhor ambiente, coesão e motivação.</div>
+            <div class="box"><strong>Formato</strong> Indoor/Outdoor, facilitadores certificados.</div>
+          </div>
+          <div style="margin-top:.6rem"><a href="#projetos-contacto" class="btn" style="background:var(--dourado);color:#fff;border-color:var(--dourado)">Pedir proposta</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <script>
     (function(){
       const modals={
         'off-season':document.getElementById('modal-off-season'),
@@ -548,147 +697,5 @@
       });
     })();
   </script>
-
-  <!-- Modais (conteúdo) -->
-  <!-- OFF SEASON -->
-  <div class="modal" id="modal-off-season" aria-hidden="true" role="dialog" aria-labelledby="title-off-season">
-    <div class="modal-content" tabindex="-1">
-      <div class="modal-header">
-        <h3 class="modal-title" id="title-off-season">OFF SEASON — Detalhes</h3>
-        <button class="modal-close" data-close aria-label="Fechar"><i class="fas fa-times"></i></button>
-      </div>
-      <div class="modal-body">
-        <div class="gallery" data-gallery="off-season">
-          <button class="gallery-prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="gallery-next" aria-label="Seguinte"><i class="fa-solid fa-chevron-right"></i></button>
-          <div class="gallery-main">
-            <div class="gallery-slide active" data-index="0" data-type="image"><img src="../assets/projetos/off-season/1.jpg" alt="OFF SEASON — 1"></div>
-            <div class="gallery-slide" data-index="1" data-type="image"><img src="../assets/projetos/off-season/2.jpg" alt="OFF SEASON — 2"></div>
-            <div class="gallery-slide" data-index="2" data-type="image"><img src="../assets/projetos/off-season/3.jpg" alt="OFF SEASON — 3"></div>
-            <div class="gallery-slide" data-index="3" data-type="video"><video src="../assets/projetos/off-season/4.mp4" controls preload="metadata" poster="../assets/projetos/off-season/4.jpg"></video></div>
-          </div>
-          <div class="thumbs">
-            <button class="thumb active" data-to="0" aria-label="Imagem 1"><img src="../assets/projetos/off-season/1.jpg" alt=""></button>
-            <button class="thumb" data-to="1" aria-label="Imagem 2"><img src="../assets/projetos/off-season/2.jpg" alt=""></button>
-            <button class="thumb" data-to="2" aria-label="Imagem 3"><img src="../assets/projetos/off-season/3.jpg" alt=""></button>
-            <button class="thumb video" data-to="3" aria-label="Vídeo"><img src="../assets/projetos/off-season/4.jpg" alt=""></button>
-          </div>
-        </div>
-        <div class="proj-text">
-          <h3>Sobre o Projeto</h3>
-          <p>Ideal para melhorar a condição física, corrigir desequilíbrios e manter a atividade entre épocas.</p>
-          <div class="meta">
-            <div class="box"><strong>Inclui</strong> Avaliação física, ginásio+campo, sessões individuais/grupo, suporte.</div>
-            <div class="box"><strong>Objetivos</strong> Evolução física, prevenção de lesões e consistência.</div>
-          </div>
-          <div style="margin-top:.6rem"><a href="contactsv2.html" class="btn" style="background:var(--dourado);color:#fff;border-color:var(--dourado)">Quero saber mais</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROGRAMA 55+ -->
-  <div class="modal" id="modal-programa-55" aria-hidden="true" role="dialog" aria-labelledby="title-programa-55">
-    <div class="modal-content" tabindex="-1">
-      <div class="modal-header">
-        <h3 class="modal-title" id="title-programa-55">Programa 55+ — Detalhes</h3>
-        <button class="modal-close" data-close aria-label="Fechar"><i class="fas fa-times"></i></button>
-      </div>
-      <div class="modal-body">
-        <div class="gallery" data-gallery="programa-55">
-          <button class="gallery-prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="gallery-next" aria-label="Seguinte"><i class="fa-solid fa-chevron-right"></i></button>
-          <div class="gallery-main">
-            <div class="gallery-slide active" data-index="0" data-type="video"><video src="../assets/projetos/programa-55/1.mp4" controls preload="metadata" poster="../assets/projetos/programa-55/1.jpg"></video></div>
-            <div class="gallery-slide" data-index="1" data-type="video"><video src="../assets/projetos/programa-55/2.mp4" controls preload="metadata" poster="../assets/projetos/programa-55/2.jpg"></video></div>
-            <div class="gallery-slide" data-index="2" data-type="video"><video src="../assets/projetos/programa-55/3.mp4" controls preload="metadata"></video></div>
-          </div>
-          <div class="thumbs">
-            <button class="thumb video active" data-to="0" aria-label="Vídeo 1"><img src="../assets/projetos/programa-55/1.jpg" alt=""></button>
-            <button class="thumb video" data-to="1" aria-label="Vídeo 2"><img src="../assets/projetos/programa-55/2.jpg" alt=""></button>
-            <button class="thumb video" data-to="2" aria-label="Vídeo 3"><img src="../assets/projetos/programa-55/2.jpg" alt=""></button>
-          </div>
-        </div>
-        <div class="proj-text">
-          <h3>Sobre o Projeto</h3>
-          <p>Iniciativa gratuita para a comunidade sénior com acompanhamento seguro e adaptado.</p>
-          <div class="meta">
-            <div class="box"><strong>Benefícios</strong> Mobilidade, equilíbrio, hábitos saudáveis e convívio.</div>
-            <div class="box"><strong>Para quem</strong> Maiores de 55 anos.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PÕE-TE A BULIR -->
-  <div class="modal" id="modal-poe-te-a-bulir" aria-hidden="true" role="dialog" aria-labelledby="title-poe-te-a-bulir">
-    <div class="modal-content" tabindex="-1">
-      <div class="modal-header">
-        <h3 class="modal-title" id="title-poe-te-a-bulir">Põe-te a Bulir — Detalhes</h3>
-        <button class="modal-close" data-close aria-label="Fechar"><i class="fas fa-times"></i></button>
-      </div>
-      <div class="modal-body">
-        <div class="gallery" data-gallery="poe-te-a-bulir">
-          <button class="gallery-prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="gallery-next" aria-label="Seguinte"><i class="fa-solid fa-chevron-right"></i></button>
-          <div class="gallery-main">
-            <div class="gallery-slide active" data-index="0" data-type="image"><img src="../assets/projetos/poe-te-a-bulir/1.jpg" alt=""></div>
-            <div class="gallery-slide" data-index="1" data-type="image"><img src="../assets/projetos/poe-te-a-bulir/2.jpg" alt=""></div>
-            <div class="gallery-slide" data-index="2" data-type="image"><img src="../assets/projetos/poe-te-a-bulir/3.jpg" alt=""></div>
-            <div class="gallery-slide" data-index="3" data-type="image"><img src="../assets/projetos/poe-te-a-bulir/4.jpg" alt=""></div>
-          </div>
-          <div class="thumbs">
-            <button class="thumb active" data-to="0" aria-label="Imagem 1"><img src="../assets/projetos/poe-te-a-bulir/1.jpg" alt=""></button>
-            <button class="thumb" data-to="1" aria-label="Imagem 2"><img src="../assets/projetos/poe-te-a-bulir/2.jpg" alt=""></button>
-            <button class="thumb" data-to="2" aria-label="Imagem 3"><img src="../assets/projetos/poe-te-a-bulir/3.jpg" alt=""></button>
-            <button class="thumb" data-to="3" aria-label="Imagem 4"><img src="../assets/projetos/poe-te-a-bulir/4.jpg" alt=""></button>
-          </div>
-        </div>
-        <div class="proj-text">
-          <h3>Sobre o Projeto</h3>
-          <p>Aulas gratuitas ao ar livre aos fins-de-semana, entre junho e setembro.</p>
-          <div class="meta">
-            <div class="box"><strong>Modalidades</strong> Zumba, Aeróbica e aulas de ritmo.</div>
-            <div class="box"><strong>Inclusão</strong> Aberto a todas as idades e níveis.</div>
-          </div>
-          <div style="margin-top:.6rem"><a href="contactsv2.html" class="btn" style="background:var(--dourado);color:#fff;border-color:var(--dourado)">Quero participar</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TEAM BUILDING -->
-  <div class="modal" id="modal-team-building" aria-hidden="true" role="dialog" aria-labelledby="title-team-building">
-    <div class="modal-content" tabindex="-1">
-      <div class="modal-header">
-        <h3 class="modal-title" id="title-team-building">Team Building — Detalhes</h3>
-        <button class="modal-close" data-close aria-label="Fechar"><i class="fas fa-times"></i></button>
-      </div>
-      <div class="modal-body">
-        <div class="gallery" data-gallery="team-building">
-          <button class="gallery-prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="gallery-next" aria-label="Seguinte"><i class="fa-solid fa-chevron-right"></i></button>
-          <div class="gallery-main">
-            <div class="gallery-slide active" data-index="0" data-type="image"><img src="../assets/projetos/team-building/1.jpg" alt=""></div>
-            <div class="gallery-slide" data-index="1" data-type="image"><img src="../assets/projetos/team-building/2.jpg" alt=""></div>
-          </div>
-          <div class="thumbs">
-            <button class="thumb active" data-to="0" aria-label="Imagem 1"><img src="../assets/projetos/team-building/1.jpg" alt=""></button>
-            <button class="thumb" data-to="1" aria-label="Imagem 2"><img src="../assets/projetos/team-building/2.jpg" alt=""></button>
-          </div>
-        </div>
-        <div class="proj-text">
-          <h3>Sobre o Projeto</h3>
-          <p>Refresca a energia das equipas com desafios colaborativos e dinâmicas físicas.</p>
-          <div class="meta">
-            <div class="box"><strong>Objetivos</strong> Melhor ambiente, coesão e motivação.</div>
-            <div class="box"><strong>Formato</strong> Indoor/Outdoor, facilitadores certificados.</div>
-          </div>
-          <div style="margin-top:.6rem"><a href="#projetos-contacto" class="btn" style="background:var(--dourado);color:#fff;border-color:var(--dourado)">Pedir proposta</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
 </body>
 </html>
